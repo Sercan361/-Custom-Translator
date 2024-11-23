@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Übersetzer mit eigener Sprache</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+    textarea, input, select, button { margin: 10px; padding: 10px; }
+    textarea { width: 300px; height: 100px; }
+    #customRules { display: none; }
+    ul { text-align: left; margin: 0 auto; max-width: 300px; }
+  </style>
+</head>
+<body>
+  <h1>Übersetzer mit eigener Sprache</h1>
+
+  <textarea id="inputText" placeholder="Gib deinen Text ein..."></textarea>
+  <br>
+  <select id="language" onchange="toggleCustomRules()">
+    <option value="morse">Morsecode</option>
+    <option value="leet">Leetspeak</option>
+    <option value="custom">Eigene Sprache</option>
+  </select>
+  <br>
+  <div id="customRules">
+    <h3>Eigene Regeln erstellen:</h3>
+    <input id="customKey" placeholder="Eingabetext (z. B. HALLO)">
+    <input id="customValue" placeholder="Übersetzung (z. B. HI)">
+    <button onclick="addCustomRule()">Regel hinzufügen</button>
+    <ul id="rulesList"></ul>
+  </div>
+  <br>
+  <button onclick="translate()">Übersetzen</button>
+  <button onclick="reverseTranslate()">Rückübersetzen</button>
+  <br><br>
+  <h2>Ergebnis:</h2>
+  <p id="outputText" style="font-weight: bold; color: green;"></p>
+
+  <script src="translator.js"></script>
+</body>
+</html>
